@@ -35,18 +35,6 @@ extern char **environ;
 #define USE_STRTOK 0
 
 /**
- * struct builtin - Function that will contains a builtin string and
- * its related function
- * @type: the builtin command flag
- * @f: the function
- */
-typedef struct builtin
-{
-	char *type;
-	int (*f)(var_s *);
-} builtin_s;
-
-/**
  * struct liststr - singly linked list
  * @num: the number field
  * @str: a string
@@ -109,6 +97,18 @@ typedef struct variable
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 		0, 0, 0}
 
+/**
+ * struct builtin - Function that will contains a builtin string and
+ * its related function
+ * @type: the builtin command flag
+ * @f: the function
+ */
+typedef struct builtin
+{
+        char *type;
+        int (*f)(var_s *);
+} builtin_s;
+
 /* shell_loop.c */
 int sh_file(var_s *, char **);
 int get_builtin(var_s *);
@@ -140,6 +140,19 @@ char *_strcpy(char *, char *);
 char *strdup(const char *);
 void _puts(char *);
 int _putchar(char);
+
+/* exit_shell.c */
+char *_strchr(char *, char *);
+char *_strncat(char *, char *, int);
+char *_strncpy(char *, char *, int);
+
+/* aux_token.c */
+char **strtow(char *, char *);
+char **strow_d(char *, char);
+
+/* aux_memo.c */
+int aux_free(void **);
+
 
 
 
