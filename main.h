@@ -40,6 +40,7 @@ extern char **environ;
  * @str: a string
  * @next: points to the next node
  */
+
 typedef struct liststr
 {
 	int num;
@@ -70,6 +71,7 @@ typedef struct liststr
  * @read_fl: read line input.
  * @hist_count: history count.
  */
+
 typedef struct variable
 {
 	char *arg;
@@ -87,8 +89,10 @@ typedef struct variable
 	list_s *history;
 	list_s *alias;
 
+	/* pointer access address to cmd ; chain buffer, for memory mangement */
 	char **cmd_buf;
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	/* CMD_type ||, &&, ; */
+	int cmd_buf_type;
 	int read_fl;
 	int hist_count;
 } var_s;
@@ -152,9 +156,6 @@ char **strow_d(char *, char);
 
 /* aux_memo.c */
 int aux_free(void **);
-
-
-
 
 
 
