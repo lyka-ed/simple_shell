@@ -109,8 +109,8 @@ typedef struct variable
  */
 typedef struct builtin
 {
-        char *type;
-        int (*f)(var_s *);
+	char *type;
+	int (*f)(var_s *);
 } builtin_s;
 
 /* shell_loop.c */
@@ -120,7 +120,7 @@ void get_cmd(var_s *);
 void fork_cmd(var_s *);
 
 /* syn_anly */
-int syn_cmd(var_s *, char **);
+int syn_cmd(var_s *, char *);
 char *path_access(var_s*, char*, char*);
 char *syn_char(char*, int, int);
 
