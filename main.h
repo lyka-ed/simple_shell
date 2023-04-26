@@ -196,4 +196,11 @@ list_s *node_begins_at(list_s *, char *, char);
 ssize_t get_node(list_s *, list_s *);
 size_t print_list(const list_s *);
 
+/* toem_history.c */
+char *get_history_file(ino_t *info);
+int write_history(ino_t *info);
+int read_history(ino_t *info);
+int build_history_list(ino_t *info, char *buf, int linecount);
+int renumber_history(ino_t *info);
+
 #endif
