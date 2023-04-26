@@ -141,18 +141,18 @@ char *_strcat(char *, char *);
 
 /* aux_string_2.c */
 char *_strcpy(char *, char *);
-char *strdup(const char *);
+char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
 /* exit_shell.c */
-char *_strncpy(char *dest, char *src, int n);
-char *_strncat(char *dest, char *src, int n);
-char *_strchr(char *s, char c);
+char *_strncpy(char *, char *, int);
+char *_strncat(char *, char *, int);
+char *_strchr(char *, char );
 
 /* aux_token.c */
 char **strtow(char *, char *);
-char **strow_d(char *, char);
+char **strtow_d(char *, char);
 
 /* aux_memo.c */
 int aux_free(void **);
