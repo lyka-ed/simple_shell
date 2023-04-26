@@ -157,12 +157,11 @@ char **strtow_d(char *, char);
 /* aux_memo.c */
 int aux_free(void **);
 
-<<<<<<< HEAD
 /* aux_realloc.c */
 char *_memset(char * , char, unsigned int);
 void s_free(char **);
 void *_realloc_shell( void *, unsigned int, unsigned int);
-=======
+
 /* aux_builtin_1.c */
 int _ssexit(var_s *);
 int _sscd(var_s *);
@@ -171,6 +170,5 @@ int _sshelp(var_s *);
 /* aux_builtin_2.c */
 int _sshistory(var_s *);
 int _ssalias(var_s *);
->>>>>>> 5e689ef0766412b2250eff5d08218740dbe27484
 
 #endif
