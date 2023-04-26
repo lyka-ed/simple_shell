@@ -11,94 +11,97 @@
 #include <limits.h>
 
 /**
- * **strtow - splits a string into words. Repeat delimiters are ignored
- * @str: the input string
- * @d: the delimeter string
- * Return: a pointer to an array of strings, or NULL on failure
+ * **strtow - Function that will print strings splited into words
+ * repeated delimiters ignored.
+ * @str: string character.
+ * @del: delimeter string.
+ *
+ * Return: pointer to access array of string character or NULL if fail.
  */
-char **split(char *string, char *separators, int *count); 
-char **strtow(char *str, char *d)
+char **strtow(char *str, char *del)
 {
-	int i, j, k, m, numwords = 0;
+	int x, y, z, w, num_w = 0;
 	char **s;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	if (!d)
-		d = " ";
-	for (i = 0; str[i] != '\0'; i++)
-		if (is_delimeter(str[i], d) && (is_delimeter(str[i + 1], d) || !str[i + 1]))
-			numwords++;
+	if (!del)
+		del = " ";
+	for (x = 0; str[x] != '\0'; x++)
+		if (is_delimeter(str[x], del) && (is_delimeter(str[x + 1],
+						del) || !str[x + 1]))
+			num_w++;
 
-	if (numwords == 0)
+	if (num_w == 0)
 		return (NULL);
-	s = malloc((1 + numwords) * sizeof(char *));
+	s = malloc((1 + num_w) * sizeof(char *));
 	if (!s)
 		return (NULL);
-	for (i = 0, j = 0; j < numwords; j++)
+	for (x = 0, y = 0; y < num_w; y++)
 	{
-		while (is_delimeter(str[i], d))
-			i++;
-		k = 0;
-		while (!is_delimeter(str[i + k], d) && str[i + k])
-			k++;
-		s[j] = malloc((k + 1) * sizeof(char));
-		if (!s[j])
+		while (is_delimeter(str[x], del))
+			x++;
+		z = 0;
+		while (!is_delimeter(str[x + z], del) && str[x + z])
+			z++;
+		s[y] = malloc((z + 1) * sizeof(char));
+		if (!s[y])
 		{
-			for (k = 0; k < j; k++)
-				free(s[k]);
+			for (z = 0; z < y; z++)
+				free(s[z]);
 			free(s);
 			return (NULL);
 		}
-		for (m = 0; m < k; m++)
-			s[j][m] = str[i++];
-		s[j][m] = 0;
+		for (w = 0; w < z; w++)
+			s[y][w] = str[x++];
+		s[y][w] = 0;
 	}
-	s[j] = NULL;
+	s[y] = NULL;
 	return (s);
 }
 
 /**
- * **strtow2 - splits a string into words
- * @str: the input string
- * @d: the delimeter
- * Return: a pointer to an array of strings, or NULL on failure
+ * **strtow_d - Function that helps split a string words.
+ * @str: string character.
+ * @del: delimeter string.
+ *
+ * Return: pointer to access array of strings or Nothing 0 (NULL).
  */
-char **strtow2(char *str, char d)
+char **strtow_d(char *str, char del)
 {
-	int i, j, k, m, numwords = 0;
+	int x, y, z, w, num_w = 0;
 	char **s;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
-		if ((str[i] != d && str[i + 1] == d) ||
-		    (str[i] != d && !str[i + 1]) || str[i + 1] == d)
-			numwords++;
-	if (numwords == 0)
+	for (x = 0; str[x] != '\0'; x++)
+		if ((str[x] != del && str[x + 1] == del) ||
+		    (str[x] != del && !str[x + 1]) || str[x + 1] == del)
+			num_w++;
+	if (num_w == 0)
 		return (NULL);
-	s = malloc((1 + numwords) * sizeof(char *));
+	s = malloc((1 + num_w) * sizeof(char *));
 	if (!s)
 		return (NULL);
-	for (i = 0, j = 0; j < numwords; j++)
+	for (y = 0, y = 0; y < num_w; y++)
 	{
-		while (str[i] == d && str[i] != d)
-			i++;
-		k = 0;
-		while (str[i + k] != d && str[i + k] && str[i + k] != d)
-			k++;
-		s[j] = malloc((k + 1) * sizeof(char));
-		if (!s[j])
+		while (str[x] == del && str[x] != del)
+			x++;
+		z = 0;
+		while (str[x + z] != del && str[x + z] && str[x + z] != del)
+			z++;
+		s[y] = malloc((z + 1) * sizeof(char));
+		if (!s[y])
 		{
-			for (k = 0; k < j; k++)
-				free(s[k]);
+			for (z = 0; z < y; z++)
+				free(s[z]);
 			free(s);
 			return (NULL);
 		}
-		for (m = 0; m < k; m++)
-			s[j][m] = str[i++];
-		s[j][m] = 0;
+		for (w = 0; w < z; w++)
+			s[y][w] = str[x++];
+		s[y][w] = 0;
 	}
-	s[j] = NULL;
+	s[y] = NULL;
 	return (s);
 }
