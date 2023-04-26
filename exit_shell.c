@@ -72,7 +72,7 @@ char *_strncat(char *dest, char *src, int n)
  *
  * Return: pointer to access memory area.
  */
-char * _strchr(char *s, char c)
+char *_strchr(char *s, char c)
 {
 	do {
 		if (*s == c)
