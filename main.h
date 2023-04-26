@@ -23,10 +23,10 @@
 extern char **environ;
 
 /* Command line */
-#define CMD_NORM	
-#define CMD_OR		
-#define CMD_AND		
-#define CMD_CHAIN	
+#define CMD_NORM
+#define CMD_OR
+#define CMD_AND
+#define CMD_CHAIN
 
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
@@ -40,6 +40,7 @@ extern char **environ;
  * @type: the builtin command flag
  * @f: the function
  */
+
 typedef struct builtin
 {
 	char *type;
@@ -52,6 +53,7 @@ typedef struct builtin
  * @str: a string
  * @next: points to the next node
  */
+
 typedef struct liststr
 {
 	int num;
@@ -82,6 +84,7 @@ typedef struct liststr
  * @read_fl: read line input.
  * @hist_count: history count.
  */
+
 typedef struct variable
 {
 	char *arg;
@@ -96,11 +99,14 @@ typedef struct variable
 	int env_changed;
 	int status;
 	list_s *env;
-        list_s *history;
-        list_s *alias;
+	list_s *history;
+	list_s *alias;
 
-	char **cmd_buf; /* pointer access address to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	/* pointer access address to cmd ; chain buffer, for memory mangement */
+	char **cmd_buf;
+
+	/* CMD_type ||, &&, ; */
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
 } vars;
@@ -114,9 +120,6 @@ int sh_file(vars *, char **);
 int get_builtin(vars *);
 void get_cmd(vars *);
 void fork_cmd(vars *);
-
-
-
 
 
 
