@@ -174,4 +174,11 @@ int unset_ali(var_s *, char *);
 int set_ali(var_s *, char *);
 int print_ali(list_s *node);
 
+/* aux_error_1.c */
+int _ err_ato(char *c);
+void get_error(var_s *dsp, char *estr);
+int get_di(int input, int fd);
+char *trans_numbe(long int num, int base, int flags);
+void delete_ comment(char *buffer);
+
 #endif
