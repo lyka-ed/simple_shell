@@ -148,7 +148,7 @@ int _putchar(char);
 /* exit_shell.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
-char *_strchr(char *, char );
+char *_strchr(char *, char);
 
 /* aux_token.c */
 char **strtow(char *, char *);
@@ -158,9 +158,9 @@ char **strtow_d(char *, char);
 int aux_free(void **);
 
 /* aux_realloc.c */
-char *_memset(char * , char, unsigned int);
+char *_memset(char *, char, unsigned int);
 void s_free(char **);
-void *_realloc_shell( void *, unsigned int, unsigned int);
+void *_realloc_shell(void *, unsigned int, unsigned int);
 
 /* aux_builtin_1.c */
 int _ssexit(var_s *);
@@ -180,5 +180,6 @@ void get_error(var_s *dsp, char *estr);
 int get_di(int input, int fd);
 char *trans_numbe(long int num, int base, int flags);
 void delete_comment(char *buffer);
+int _putchar(char);
 
 #endif
