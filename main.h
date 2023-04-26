@@ -44,7 +44,7 @@ extern char **environ;
 typedef struct builtin
 {
 	char *type;
-	int (*f)(vars *);
+	int (*f)(var_s *);
 } builtin_s;
 
 /**
@@ -96,7 +96,7 @@ typedef struct variable
 	int l_count_flag;
 	char *f_name;
 	char **environ;
-	int env_changed;
+	int env_change;
 	int status;
 	list_s *env;
 	list_s *history;
@@ -104,22 +104,47 @@ typedef struct variable
 
 	/* pointer access address to cmd ; chain buffer, for memory mangement */
 	char **cmd_buf;
-
 	/* CMD_type ||, &&, ; */
 	int cmd_buf_type;
-	int readfd;
-	int histcount;
-} vars;
+	int read_fl;
+	int hist_count;
+} var_s;
 
 #define VARS_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 		0, 0, 0}
 
 /* shell_loop.c */
-int sh_file(vars *, char **);
-int get_builtin(vars *);
-void get_cmd(vars *);
-void fork_cmd(vars *);
+int sh_file(var_s *, char **);
+int get_builtin(var_s *);
+void get_cmd(var_s *);
+void fork_cmd(var_s *);
+
+/* syn_anly */
+int syn_cmd(var_s *, char **);
+char *path_access(var_s*, char*, char*);
+char *syn_char(char*, int, int);
+
+/* simple_loop.c */
+int simple_loop(char **);
+
+/* error_handler.c  */
+void _post(char *);
+int _postchar(char);
+int _postfl(char c, int fl);
+int _postsfl(char *str, int fl);
+
+/* aux_string_1.c */
+int _strlen(char *);
+int _strcmp(char *, char *);
+char *begin_at(const char *, const char *);
+char *_strcat(char *, char *);
+
+/* aux_string_2.c */
+char *_strcpy(char *, char *);
+char *strdup(const char *);
+void _puts(char *);
+int _putchar(char);
 
 
 
