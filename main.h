@@ -157,5 +157,13 @@ char **strtow_d(char *, char);
 /* aux_memo.c */
 int aux_free(void **);
 
+/* aux_builtin_1.c */
+int _ssexit(var_s *);
+int _sscd(var_s *);
+int _sshelp(var_s *);
+
+/* aux_builtin_2.c */
+int _sshistory(var_s *);
+int _ssalias(var_s *);
 
 #endif
