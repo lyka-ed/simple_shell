@@ -146,9 +146,9 @@ void _puts(char *);
 int _putchar(char);
 
 /* exit_shell.c */
-char *_strchr(char *, char *);
-char *_strncat(char *, char *, int);
-char *_strncpy(char *, char *, int);
+char *_strncpy(char *dest, char *src, int n);
+char *_strncat(char *dest, char *src, int n);
+char *_strchr(char *s, char c);
 
 /* aux_token.c */
 char **strtow(char *, char *);
