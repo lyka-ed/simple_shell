@@ -157,5 +157,9 @@ char **strow_d(char *, char);
 /* aux_memo.c */
 int aux_free(void **);
 
+/* aux_realloc.c */
+char *_memset(char * , char, unsigned int);
+void s_free(char **);
+void *_realloc_shell( void *, unsigned int, unsigned int);
 
 #endif
