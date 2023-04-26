@@ -170,5 +170,8 @@ int _sshelp(var_s *);
 /* aux_builtin_2.c */
 int _sshistory(var_s *);
 int _ssalias(var_s *);
+int unset_ali(var_s *, char *);
+int set_ali(var_s *, char *);
+int print_ali(list_s *node);
 
 #endif
