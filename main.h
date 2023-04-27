@@ -215,7 +215,7 @@ int _unsetenv(var_s *, char *);
 int _setenv(var_s *, char *, char *);
 
 /* aux_environment.c */
-char * _getenv(var_s *, const char *);
+char *_getenv(var_s *, const char *);
 int _ssenv(var_s *);
 int _sssetenv(var_s *);
 int _ssunsetenv(var_s *);
