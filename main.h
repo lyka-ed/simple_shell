@@ -124,8 +124,8 @@ int syn_cmd(var_s *, char *);
 char *path_access(var_s*, char*, char*);
 char *syn_char(char*, int, int);
 
-/* simple_loop.c */
-int simple_loop(char **);
+/* aux_loop.c */
+int aux_loop(char **);
 
 /* error_handler.c  */
 void _post(char *);
