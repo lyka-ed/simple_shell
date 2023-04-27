@@ -222,7 +222,7 @@ int _ssunsetenv(var_s *);
 int load_envl(var_s *);
 
 /* aux_getvar.c */
-void erarse_var(var_s *);
+void erase_var(var_s *);
 void fix_var(var_s *, char **);
 void free_var(var_s *, int);
 
