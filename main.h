@@ -23,10 +23,10 @@
 extern char **environ;
 
 /* Command line */
-#define CMD_NORM
-#define CMD_OR
-#define CMD_AND
-#define CMD_CHAIN
+#define CMD_NORM 0
+#define CMD_OR 1
+#define CMD_AND 2
+#define CMD_CHAIN 3
 
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
@@ -92,7 +92,7 @@ typedef struct variable
 	/* pointer access address to cmd ; chain buffer, for memory mangement */
 	char **cmd_buf;
 	/* CMD_type ||, &&, ; */
-	int cmd_buf_type;
+	int cmd_buf_types;
 	int read_fl;
 	int hist_count;
 } var_s;
