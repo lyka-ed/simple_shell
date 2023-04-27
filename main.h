@@ -199,7 +199,7 @@ size_t print_list(const list_s *);
 char *fetch_history(var_s *vars);
 int write_hist(var_s *vars);
 int read_hist(var_s *vars);
-int build_hlist(var_s *vars, char *buf, int l_count);
+int build_hist(var_s *vars, char *buf, int l_count);
 int num_history(var_s *vars);
 
 /* aux_variable.c */
