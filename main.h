@@ -175,12 +175,11 @@ int set_ali(var_s *, char *);
 int print_ali(list_s *node);
 
 /* aux_error_1.c */
-int _err_ato(char *c);
-void get_error(var_s *dsp, char *estr);
-int get_di(int input, int fd);
-char *trans_numbe(long int num, int base, int flags);
-void delete_comment(char *buffer);
-int _putchar(char);
+int _err_ato(char *);
+void get_error(var_s *, char *);
+int get_di(int, int);
+char *trans_number(long int, int, int);
+void delete_comment(char *);
 
 /* aux_list_1.c */
 list_s *add_node(list_s **, const char *, int);
@@ -196,11 +195,40 @@ list_s *node_begins_at(list_s *, char *, char);
 ssize_t get_node(list_s *, list_s *);
 size_t print_list(const list_s *);
 
-/* toem_history.c */
-char *get_history_file(ino_t *info);
-int write_history(ino_t *info);
-int read_history(ino_t *info);
-int build_history_list(ino_t *info, char *buf, int linecount);
-int renumber_history(ino_t *info);
+/* aux_history.c */
+char *fetch_history(var_s *vars);
+int write_hist(var_s *vars);
+int read_hist(var_s *vars);
+int build_hlist(var_s *vars, char *buf, int l_count);
+int num_history(var_s *vars);
+
+/* aux_variable.c */
+int in_chain(var_s *, char *, size_t *);
+void conf_chain(var_s *, char *, size_t *, size_t, size_t);
+int swap_var(var_s *);
+int swap_alias(var_s *);
+int swap_string(char **, char *);
+
+/* aux_get_envn.c */
+char **get_envn(var_s *);
+int _unsetenv(var_s *, char *);
+int _setenv(var_s *, char *, char *);
+
+/* aux_environment.c */
+char * _getenv(var_s *, const char *);
+int _ssenv(var_s *);
+int _sssetenv(var_s *);
+int _ssunsetenv(var_s *);
+int load_envl(var_s *);
+
+/* aux_getvar.c */
+void erarse_var(var_s *);
+void fix_var(var_s *, char **);
+void free_var(var_s *, int);
+
+/* aux_getline.c */
+int _getlines(var_s *, char **, size_t *);
+void sig_handle(int);
+ssize_t get_input(var_s *);
 
 #endif
