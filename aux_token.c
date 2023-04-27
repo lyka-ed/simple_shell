@@ -28,7 +28,7 @@ char **strtow(char *str, char *del)
 	if (!del)
 		del = " ";
 	for (x = 0; str[x] != '\0'; x++)
-		if (is_delimeter(str[x], del) && (is_delimeter(str[x + 1],
+		if (is_token(str[x], del) && (is_token(str[x + 1],
 						del) || !str[x + 1]))
 			num_w++;
 
@@ -39,10 +39,10 @@ char **strtow(char *str, char *del)
 		return (NULL);
 	for (x = 0, y = 0; y < num_w; y++)
 	{
-		while (is_delimeter(str[x], del))
+		while (is_token(str[x], del))
 			x++;
 		z = 0;
-		while (!is_delimeter(str[x + z], del) && str[x + z])
+		while (!is_token(str[x + z], del) && str[x + z])
 			z++;
 		s[y] = malloc((z + 1) * sizeof(char));
 		if (!s[y])
