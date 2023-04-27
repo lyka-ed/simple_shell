@@ -231,4 +231,10 @@ int _getlines(var_s *, char **, size_t *);
 void sig_handle(int);
 ssize_t get_input(var_s *);
 
+/* aux_strint.c */
+int responsive(var_s *);
+int is_token(char, char *);
+int is_text(int);
+int _ato(char *);
+
 #endif
