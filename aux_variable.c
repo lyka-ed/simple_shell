@@ -17,18 +17,18 @@ int is_chain(var_s *vars, char *buf, size_t *b)
 	{
 		buf[y] = 0;
 		y++;
-		vars->cmd_buf_types = CMD_OR;
+		vars->cmd_buf_type = CMD_OR;
 	}
 	else if (buf[y] == '&' && buf[y + 1] == '&')
 	{
 		buf[y] = 0;
 		y++;
-		vars->cmd_buf_types = CMD_AND;
+		vars->cmd_buf_type = CMD_AND;
 	}
 	else if (buf[y] == ';')
 	{
 		buf[y] = 0;
-		vars->cmd_buf_types = CMD_CHAIN;
+		vars->cmd_buf_type = CMD_CHAIN;
 	}
 	else
 		return (0);
@@ -53,7 +53,7 @@ void conf_chain(var_s *vars, char *buf, size_t *b, size_t x, size_t len)
 {
 	size_t y = *b;
 
-	if (vars->cmd_buf_types == CMD_AND)
+	if (vars->cmd_buf_type == CMD_AND)
 	{
 		if (vars->status)
 		{
@@ -61,7 +61,7 @@ void conf_chain(var_s *vars, char *buf, size_t *b, size_t x, size_t len)
 			y = len;
 		}
 	}
-	if (vars->cmd_buf_types == CMD_OR)
+	if (vars->cmd_buf_type == CMD_OR)
 	{
 		if (!vars->status)
 		{
