@@ -190,7 +190,7 @@ size_t print_ls(const list_s *);
 void free_lists(list_s **);
 
 /* aux_list_2.c */
-size_t list_length(const list_s);
+size_t list_length(const list_s *);
 char **list_strings(list_s *);
 list_s *node_begins_at(list_s *, char *, char);
 ssize_t get_node(list_s *, list_s *);
