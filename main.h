@@ -232,7 +232,7 @@ int _getlines(var_s *, char **, size_t *);
 void sig_handle(int);
 ssize_t get_input(var_s *);
 ssize_t read_b(var_s *, char *, size_t *);
-ssize_t input_buffer(var-s *, char **, size_t *);
+ssize_t input_buffer(var_s *, char **, size_t *);
 
 /* aux_strint.c */
 int responsive(var_s *);
