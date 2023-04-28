@@ -67,7 +67,7 @@ typedef struct liststr
  * @env_change: equating that environmet was changed.
  * @status: last status of shell.
  * @cmd_buf: address of pointer to access command line buffer.
- * @cmd_buf_type: CMD_type ||, &&, ;
+ * @cmd_buf_types: CMD_type ||, &&, ;
  * @read_fl: read line input.
  * @hist_count: history count.
  */
@@ -93,7 +93,7 @@ typedef struct variable
 	char **cmd_buf;
 
 	/* CMD_type ||, &&, ; */
-	int cmd_buf_type;
+	int cmd_buf_types;
 	int read_fl;
 	int hist_count;
 } var_s;
