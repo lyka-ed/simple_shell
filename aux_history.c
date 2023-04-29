@@ -37,24 +37,24 @@ char *fetch_history(var_s *vars)
  */
 int write_hist(var_s *vars)
 {
-	ssize_t fd;
+	ssize_t fl;
 	char *filename = fetch_history(vars);
 	list_s *node = NULL;
 
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	fl = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(filename);
-	if (fd == -1)
+	if (fl == -1)
 		return (-1);
 	for (node = vars->history; node; node = node->next)
 	{
-		_puts(node->str, fd);
-		_puts('\n', fd);
+		_puts(node->str, fl);
+		_puts('\n', fl);
 	}
-	_puts(BUF_FLUSH, fd);
-	close(fd);
+	_puts(BUF_FLUSH, fl);
+	close(fl);
 	return (1);
 }
 
@@ -67,29 +67,29 @@ int write_hist(var_s *vars)
 int read_hist(var_s *vars)
 {
 	int x, last = 0, linecount = 0;
-	ssize_t fd, rdlen, fsize = 0;
+	ssize_t fl, rdlen, fsize = 0;
 	struct stat st;
 	char *buf = NULL, *filename = fetch_history(vars);
 
 	if (!filename)
 		return (0);
 
-	fd = open(filename, O_RDONLY);
+	fl = open(filename, O_RDONLY);
 	free(filename);
-	if (fd == -1)
+	if (fl == -1)
 		return (0);
-	if (!fstat(fd, &st))
+	if (!fstat(fl, &st))
 		fsize = st.st_size;
 	if (fsize < 2)
 		return (0);
 	buf = malloc(sizeof(char) * (fsize + 1));
 	if (!buf)
 		return (0);
-	rdlen = read(fd, buf, fsize);
+	rdlen = read(fl, buf, fsize);
 	buf[fsize] = 0;
 	if (rdlen <= 0)
 		return (free(buf), 0);
-	close(fd);
+	close(fl);
 	for (x = 0; x < fsize; x++)
 		if (buf[x] == '\n')
 		{
@@ -102,7 +102,7 @@ int read_hist(var_s *vars)
 	free(buf);
 	vars->hist_count = linecount;
 	while (vars->hist_count-- >= HIST_MAX)
-		delete_node_at_index(&(vars->history), 0);
+		del_node(&(vars->history), 0);
 	num_history(vars);
 	return (vars->hist_count);
 }
