@@ -14,7 +14,7 @@ int sh_file(var_s *vars, char **av)
 
 	while (x != -1 && builtin_ate != -2)
 	{
-		erase_var(vars);
+		erarse_var(vars);
 		if (responsive(vars))
 			_puts("$ ");
 		_postchar(BUF_FLUSH);
