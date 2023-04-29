@@ -108,7 +108,7 @@ int read_hist(var_s *vars)
 }
 
 /**
- * build_hist - A function that adds entry to a history linked list
+ * build_hlist - A function that adds entry to a history linked list
  * @vars: Structure containing potential arguments. Used to maintain
  * @buf: buffer
  * @l_count: the history linecount, histcount
