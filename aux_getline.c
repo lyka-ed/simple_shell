@@ -1,4 +1,8 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * input_buffer - Function that will print buffer chained commands.
