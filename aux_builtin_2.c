@@ -33,7 +33,7 @@ int unset_ali(var_s *vars, char *str)
 	e = *b;
 	*b = 0;
 	ate = del_node(&(vars->alias), get_node(vars->alias,
-				node_begin_at(vars->alias, str, -1)));
+				node_begins_at(vars->alias, str, -1)));
 	*b = e;
 	return (ate);
 }
@@ -96,7 +96,7 @@ int _ssalias(var_s *vars)
 	char *b = NULL;
 	list_s *node = NULL;
 
-	if (vars->arg == 1)
+	if (vars->argc == 1)
 	{
 		node = vars->alias;
 		while (node)
@@ -112,7 +112,7 @@ int _ssalias(var_s *vars)
 		if (b)
 			set_ali(vars, vars->argv[x]);
 		else
-			print_ali(node_begin_at(vars->alias,
+			print_ali(node_begins_at(vars->alias,
 						vars->argv[x], '='));
 	}
 	return (0);
