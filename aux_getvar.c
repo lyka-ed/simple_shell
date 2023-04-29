@@ -73,7 +73,7 @@ void free_var(var_s *vars, int full)
 		free(vars->environ);
 			vars->environ = NULL;
 		free((void **)vars->cmd_buf);
-	
+
 		if (vars->read_fl > 2)
 			close(vars->read_fl);
 		_putchar(BUF_FLUSH);
